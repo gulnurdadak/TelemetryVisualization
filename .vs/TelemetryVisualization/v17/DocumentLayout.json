@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\TelemetryVisualization\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\AttitudeConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\AttitudeConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|c:\\telemetryvisualization\\assets\\scripts\\dataloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\assets\\scripts\\dataloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dataloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\CoordinateConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\CoordinateConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\AirspeedCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\AirspeedCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\AerodynamicsCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\AerodynamicsCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\TelemetryData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +13,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\TelemetryProcessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\TelemetryProcessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\AerodynamicsCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\AerodynamicsCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\AirspeedCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\AirspeedCalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|C:\\TelemetryVisualization\\Assets\\Scripts\\CoordinateConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\CoordinateConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|c:\\telemetryvisualization\\assets\\scripts\\attitudeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05C5216B-BEAD-34CF-C773-0E9B8DC9C015}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attitudeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,24 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DataLoader.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\DataLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DataLoader.cs",
               "ToolTip": "C:\\TelemetryVisualization\\Assets\\Scripts\\DataLoader.cs",
               "RelativeToolTip": "Assets\\Scripts\\DataLoader.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "ViewState": "AQIAANAAAAAAAAAAAAAgwNYAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-25T18:47:58.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "AttitudeConverter.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\AttitudeConverter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AttitudeConverter.cs",
@@ -68,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CoordinateConverter.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\CoordinateConverter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CoordinateConverter.cs",
@@ -81,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AirspeedCalculator.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\AirspeedCalculator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AirspeedCalculator.cs",
@@ -94,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "AerodynamicsCalculator.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\AerodynamicsCalculator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AerodynamicsCalculator.cs",
@@ -107,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "TelemetryProcessor.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\TelemetryProcessor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TelemetryProcessor.cs",
@@ -120,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "TelemetryData.cs",
               "DocumentMoniker": "C:\\TelemetryVisualization\\Assets\\Scripts\\TelemetryData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TelemetryData.cs",

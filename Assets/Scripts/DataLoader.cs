@@ -27,6 +27,7 @@ public class DataLoader : MonoBehaviour
     public Text CmText;
     public Text ThrustText;
     public Text MassText;
+    public Text positionText;
     public Slider playbackSlider;
     public Slider xAxisSlider;
     public Slider yAxisSlider;
@@ -54,6 +55,9 @@ public class DataLoader : MonoBehaviour
         xAxisSlider.onValueChanged.AddListener(OnXAxisValueChanged);
         yAxisSlider.onValueChanged.AddListener(OnYAxisValueChanged);
         zAxisSlider.onValueChanged.AddListener(OnZAxisValueChanged);
+
+        // Disable sliders initially
+        SetSlidersInteractable(false);
     }
 
     void OnLoadButtonClicked()
@@ -69,11 +73,14 @@ public class DataLoader : MonoBehaviour
                 string path = paths[0];
                 // Load telemetry data from the selected file
                 telemetryDataList = telemetryProcessor.LoadData(path);
-                if (telemetryDataList == null)
+                if (telemetryDataList == null || telemetryDataList.Count == 0)
                 {
                     statusText.text = "Invalid Dataset!";
+                    ClearAirplane();
+                    SetSlidersInteractable(false);
                     return;
                 }
+
                 statusText.text = $"Data loaded successfully: {telemetryDataList.Count} records.";
 
                 // Perform necessary calculations
@@ -84,6 +91,7 @@ public class DataLoader : MonoBehaviour
 
                 // Set slider max value to the number of records
                 playbackSlider.maxValue = telemetryDataList.Count - 1;
+                SetSlidersInteractable(true);
             }
             else
             {
@@ -124,30 +132,25 @@ public class DataLoader : MonoBehaviour
             Destroy(airplaneInstance);
         }
 
-        airplaneInstance = Instantiate(airplanePrefab);
-
         if (data.Count > 0)
         {
+            airplaneInstance = Instantiate(airplanePrefab);
+
             // Set the airplane's position to the center of the canvas
             Vector3 centerPosition = new Vector3(704, 250, 0);
             airplaneInstance.transform.localPosition = centerPosition;
 
             UpdateAirplane(data[0]);
-        }
-        else
-        {
-            airplaneInstance.transform.localPosition = Vector3.zero;
-        }
 
-        // Set the airplane's scale (adjust as needed)
-        airplaneInstance.transform.localScale = new Vector3(10, 16, -7);
+            // Set the airplane's scale (adjust as needed)
+            airplaneInstance.transform.localScale = new Vector3(10, 16, -7);
+            Debug.Log($"New instance created: {airplaneInstance.name}");
 
-        Debug.Log($"New instance created: {airplaneInstance.name}");
-
-        // Ensure the airplane instance is active
-        if (!airplaneInstance.activeSelf)
-        {
-            airplaneInstance.SetActive(true);
+            // Ensure the airplane instance is active
+            if (!airplaneInstance.activeSelf)
+            {
+                airplaneInstance.SetActive(true);
+            }
         }
     }
 
@@ -201,6 +204,10 @@ public class DataLoader : MonoBehaviour
         CmText.text = $"Cm: {telemetryData.Cm:F3}";
         ThrustText.text = $"Thrust: {telemetryData.thrust_N_1:F3} N";
         MassText.text = $"Mass: {telemetryData.mass_kg:F3} kg";
+
+        // Update position text
+        Vector3 position = airplaneInstance.transform.localEulerAngles;
+        positionText.text = $"X: {position.x:F2}\n Y: {position.y:F2}\n Z: {position.z:F2}";
     }
 
     void OnXAxisValueChanged(float value)
@@ -211,6 +218,9 @@ public class DataLoader : MonoBehaviour
             rotation.x = value;
             airplaneInstance.transform.localEulerAngles = rotation;
             Debug.Log($"Updated X Rotation: {rotation.x}");
+
+            // Update position text
+            UpdatePositionText();
         }
     }
 
@@ -222,6 +232,9 @@ public class DataLoader : MonoBehaviour
             rotation.y = value;
             airplaneInstance.transform.localEulerAngles = rotation;
             Debug.Log($"Updated Y Rotation: {rotation.y}");
+
+            // Update position text
+            UpdatePositionText();
         }
     }
 
@@ -233,6 +246,58 @@ public class DataLoader : MonoBehaviour
             rotation.z = value;
             airplaneInstance.transform.localEulerAngles = rotation;
             Debug.Log($"Updated Z Rotation: {rotation.z}");
+
+            // Update position text
+            UpdatePositionText();
         }
+    }
+
+    void UpdatePositionText()
+    {
+        if (airplaneInstance != null)
+        {
+            Vector3 position = airplaneInstance.transform.localEulerAngles;
+            positionText.text = $"X: {position.x:F2}\n Y: {position.y:F2}\n Z: {position.z:F2} ";
+        }
+    }
+
+    void ClearAirplane()
+    {
+        if (airplaneInstance != null)
+        {
+            Destroy(airplaneInstance);
+            airplaneInstance = null;
+        }
+
+        // Clear data display and position text
+        ClearDataDisplay();
+        positionText.text = "X: N/A, Y: N/A, Z: N/A";
+    }
+
+    void ClearDataDisplay()
+    {
+        TimeText.text = "Time: N/A";
+        LatitudeText.text = "Lat: N/A";
+        LongitudeText.text = "Lon: N/A";
+        AltitudeText.text = "Alt: N/A";
+        RollText.text = "Roll: N/A";
+        PitchText.text = "Pitch: N/A";
+        YawText.text = "Yaw: N/A";
+        AlphaText.text = "Alpha: N/A";
+        BetaText.text = "Beta: N/A";
+        TASText.text = "TAS: N/A";
+        CLText.text = "CL: N/A";
+        CDText.text = "CD: N/A";
+        CmText.text = "Cm: N/A";
+        ThrustText.text = "Thrust: N/A";
+        MassText.text = "Mass: N/A";
+    }
+
+    void SetSlidersInteractable(bool interactable)
+    {
+        playbackSlider.interactable = interactable;
+        xAxisSlider.interactable = interactable;
+        yAxisSlider.interactable = interactable;
+        zAxisSlider.interactable = interactable;
     }
 }
