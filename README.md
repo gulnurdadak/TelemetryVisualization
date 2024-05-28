@@ -3,10 +3,15 @@ Telemetry Visualization Project
 ##Table of Contents
 
 -Description
+
 -Features
+
 -Requirements
+
 -Installation
+
 -Usage
+
 -Project Structure
 
 -----------------------------------------------------------------
@@ -23,10 +28,15 @@ The application features interactive controls, including time, x, y, and z slide
 ##Features
 
 -Load and visualize telemetry data from CSV files.
+
 -Calculate aerodynamic coefficients (CL, CD, Cm) based on telemetry data.
+
 -Convert quaternion data to Euler angles for easier interpretation.
+
 -Transform geographic coordinates to the NED (North-East-Down) frame.
+
 -Visualize the airplane's position, orientation, and other flight parameters.
+
 -Interactively playback telemetry data using a slider.
 
 -----------------------------------------------------------------
@@ -35,9 +45,13 @@ The application features interactive controls, including time, x, y, and z slide
 
 
 -Unity 2022 or higher(This project was created by Unity version 2022.3)
+
 -CSV file containing valid telemetry data
+
 -SimpleFileBrowser for Unity
+
 -CSV file containing flight telemetry data
+
 -C# programming knowledge (for understanding and modifying the source code)
 
 -----------------------------------------------------------------
@@ -46,9 +60,11 @@ The application features interactive controls, including time, x, y, and z slide
 
 
 -Clone the repository to your local machine:
-git clone https://github.com/gulnurdadak/TelemetryVisualization.git
+
+--> git clone https://github.com/gulnurdadak/TelemetryVisualization.git
 
 -Open the project in Unity.
+
 -Import the SimpleFileBrowser asset into your project (available from the Unity Asset Store).
 
 -----------------------------------------------------------------
@@ -91,13 +107,21 @@ To continue, load a valid CSV file using the "LOAD DATA" button. Once a valid fi
 
 -Assets/Scripts: Contains all the C# scripts for data processing, visualization, and UI interaction.
 
+
 -AerodynamicsCalculator.cs: Calculates aerodynamic coefficients (CL, CD, Cm).
+
 -DataLoader.cs: Handles loading and processing of telemetry data from CSV files.
+
 -TelemetryProcessor.cs: Parses the telemetry data from the CSV file.
+
 -AttitudeConverter.cs: Converts quaternion data to Euler angles.
+
 -CoordinateConverter.cs: Converts geographic coordinates to the NED frame.
+
 -AirspeedCalculator.cs: Calculates airspeed components.
+
 -Assets/Hessburg-Stealth Bomber: Contains the Bomber prefab used for visualization.
+
 -Assets/Plugins/SimpleFileBrowser: Contains the FileBrowser for loading data and displaying telemetry information.
 
 
