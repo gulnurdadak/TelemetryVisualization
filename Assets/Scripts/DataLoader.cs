@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SimpleFileBrowser;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using SimpleFileBrowser;
 
 public class DataLoader : MonoBehaviour
 {
@@ -28,6 +28,9 @@ public class DataLoader : MonoBehaviour
     public Text ThrustText;
     public Text MassText;
     public Slider playbackSlider;
+    public Slider xAxisSlider;
+    public Slider yAxisSlider;
+    public Slider zAxisSlider;
 
     // Processor for telemetry data
     private TelemetryProcessor telemetryProcessor;
@@ -48,6 +51,9 @@ public class DataLoader : MonoBehaviour
 
         loadButton.onClick.AddListener(OnLoadButtonClicked);
         playbackSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        xAxisSlider.onValueChanged.AddListener(OnXAxisValueChanged);
+        yAxisSlider.onValueChanged.AddListener(OnYAxisValueChanged);
+        zAxisSlider.onValueChanged.AddListener(OnZAxisValueChanged);
     }
 
     void OnLoadButtonClicked()
@@ -63,6 +69,11 @@ public class DataLoader : MonoBehaviour
                 string path = paths[0];
                 // Load telemetry data from the selected file
                 telemetryDataList = telemetryProcessor.LoadData(path);
+                if (telemetryDataList == null)
+                {
+                    statusText.text = "Invalid Dataset!";
+                    return;
+                }
                 statusText.text = $"Data loaded successfully: {telemetryDataList.Count} records.";
 
                 // Perform necessary calculations
@@ -115,25 +126,21 @@ public class DataLoader : MonoBehaviour
 
         airplaneInstance = Instantiate(airplanePrefab);
 
-       
         if (data.Count > 0)
         {
-            
-            Vector3 position = new Vector3(704, 250, 0); 
-            airplaneInstance.transform.position = position;
+            // Set the airplane's position to the center of the canvas
+            Vector3 centerPosition = new Vector3(704, 250, 0);
+            airplaneInstance.transform.localPosition = centerPosition;
 
-            //// Move to camera
-            //MoveCameraToPosition(position);
-            
             UpdateAirplane(data[0]);
         }
         else
-        {           
-            airplaneInstance.transform.position = Vector3.zero;
+        {
+            airplaneInstance.transform.localPosition = Vector3.zero;
         }
 
         // Set the airplane's scale (adjust as needed)
-        airplaneInstance.transform.localScale = new Vector3(10, 10, 1);
+        airplaneInstance.transform.localScale = new Vector3(10, 16, -7);
 
         Debug.Log($"New instance created: {airplaneInstance.name}");
 
@@ -144,45 +151,26 @@ public class DataLoader : MonoBehaviour
         }
     }
 
-    //void MoveCameraToPosition(Vector3 position)
-    //{
-    //   
-    //    Camera mainCamera = Camera.main;
-
-    //    
-    //    if (mainCamera != null)
-    //    {
-    //      
-    //        mainCamera.transform.position = new Vector3(position.x, position.y, mainCamera.transform.position.z);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Main camera not found!");
-    //    }
-    //}
-
-
     void UpdateAirplane(TelemetryData telemetryData)
     {
-        // Ensure airplane instance is not null
         if (airplaneInstance == null)
         {
             Debug.LogError("Airplane instance is null!");
             return;
         }
 
-        //// Update airplane position
-        //airplaneInstance.transform.position = telemetryData.nedCoordinates;
-        //MoveCameraToPosition(telemetryData.nedCoordinates);
+        // Set the airplane's position to the center of the canvas
+        Vector3 centerPosition = new Vector3(704, 250, 0);
+        airplaneInstance.transform.localPosition = centerPosition;
 
-        // Update airplane rotation
-        Quaternion rotation = new Quaternion(telemetryData.quat_ex, telemetryData.quat_ey, telemetryData.quat_ez, telemetryData.quat_e0);
-        airplaneInstance.transform.rotation = rotation;
+        // Update the airplane's rotation using Euler angles
+        Vector3 eulerAngles = attitudeConverter.ConvertQuaternionToEulerAngles(telemetryData);
+        airplaneInstance.transform.localRotation = Quaternion.Euler(eulerAngles);
 
-        // Update airplane scale
-        airplaneInstance.transform.localScale = new Vector3(10, 10, 1);
+        // Log the position and rotation for debugging
+        Debug.Log($"Position: {centerPosition}, Rotation: {eulerAngles}");
 
-        // Update data display
+        // Update the data display
         UpdateDataDisplay(telemetryData);
     }
 
@@ -211,8 +199,40 @@ public class DataLoader : MonoBehaviour
         CLText.text = $"CL: {telemetryData.CL:F3}";
         CDText.text = $"CD: {telemetryData.CD:F3}";
         CmText.text = $"Cm: {telemetryData.Cm:F3}";
-        ThrustText.text = $"Thrust: {telemetryData.thrust_N:F3} N";
+        ThrustText.text = $"Thrust: {telemetryData.thrust_N_1:F3} N";
         MassText.text = $"Mass: {telemetryData.mass_kg:F3} kg";
     }
-}
 
+    void OnXAxisValueChanged(float value)
+    {
+        if (airplaneInstance != null)
+        {
+            Vector3 rotation = airplaneInstance.transform.localEulerAngles;
+            rotation.x = value;
+            airplaneInstance.transform.localEulerAngles = rotation;
+            Debug.Log($"Updated X Rotation: {rotation.x}");
+        }
+    }
+
+    void OnYAxisValueChanged(float value)
+    {
+        if (airplaneInstance != null)
+        {
+            Vector3 rotation = airplaneInstance.transform.localEulerAngles;
+            rotation.y = value;
+            airplaneInstance.transform.localEulerAngles = rotation;
+            Debug.Log($"Updated Y Rotation: {rotation.y}");
+        }
+    }
+
+    void OnZAxisValueChanged(float value)
+    {
+        if (airplaneInstance != null)
+        {
+            Vector3 rotation = airplaneInstance.transform.localEulerAngles;
+            rotation.z = value;
+            airplaneInstance.transform.localEulerAngles = rotation;
+            Debug.Log($"Updated Z Rotation: {rotation.z}");
+        }
+    }
+}

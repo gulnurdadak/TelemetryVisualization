@@ -7,8 +7,8 @@ public class CoordinateConverter
     {
         // For simplicity, assuming a flat earth model
         // Convert latitude and longitude to meters (1 degree of latitude/longitude ≈ 111 km)
-        float x = latitude * 111000;
-        float y = longitude * 111000;
+        float x = latitude * 111000f;
+        float y = longitude * 111000f;
         float z = altitude;
 
         return new Vector3(x, y, z);

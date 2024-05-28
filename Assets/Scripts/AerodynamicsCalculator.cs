@@ -26,7 +26,7 @@ public class AerodynamicsCalculator
 
     // Method to calculate drag coefficient (CD)
     private float CalculateDragCoefficient(float velocity)
-    {       
+    {
         float dragCoefficient = 0.3f;
         return dragCoefficient;
     }
@@ -40,11 +40,11 @@ public class AerodynamicsCalculator
     }
 
     private float CalculateAirDensity()
-    {        
+    {
         // Standard atmosphere model can be used or another method can be applied
         return 1.225f;
     }
-    
-    private const float ReferenceArea = 0.55f;    
+
+    private const float ReferenceArea = 0.55f;
     private const float ReferenceLength = 0.19f;
 }
