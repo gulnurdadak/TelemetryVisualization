@@ -61,7 +61,7 @@ The application features interactive controls, including time, x, y, and z slide
 
 -Clone the repository to your local machine:
 
---> git clone https://github.com/gulnurdadak/TelemetryVisualization.git
+--> git clone https://github.com/gulnurdadak/TelemetryVisualization.git (this repository is private so not unclonable)
 
 -Open the project in Unity.
 
